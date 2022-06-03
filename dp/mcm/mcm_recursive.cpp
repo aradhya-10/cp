@@ -29,9 +29,11 @@ int solve(int a[], int i, int j)
     if(i>=j)        // = beacuse 1 indices involved hain
         return 0;
 
+    //k--> i to j-1  ==>  (i to k)  (k+1 to j)
+    //k--> i+1 to j  ==>  (i to k-1)  (k to j)
     for(int k=i; k<j; k++) 
     {
-        int temp = solve(a, i ,k) + solve(a, k+1, j) + a[i]*a[k]*a[j];
+        int temp = solve(a, i ,k) + solve(a, k+1, j) + a[i-1]*a[k]*a[j];
         ans = min(ans, temp);
     }
     return ans; 
@@ -40,5 +42,5 @@ int solve(int a[], int i, int j)
 int main()
 {
     int a[] = {10, 30, 5, 60};
-    cout<<solve(a,0,3);
+    cout<<solve(a,1,3);
 }
