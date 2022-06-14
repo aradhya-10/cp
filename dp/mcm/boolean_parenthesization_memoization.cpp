@@ -10,7 +10,7 @@ int solve(string a, int i, int j, char isTrue)
     if(i>j)
         return false;
         
-    if(i==j)        // = beacuse 1 indices involved hain
+    if(i==j)      
         if(isTrue=='T')
             ans+=(a[i]=='T');
         else
